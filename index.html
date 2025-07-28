@@ -7625,7 +7625,7 @@
         let userAnswers = {};
         let currentQuestionIndex = 0;
         let timerInterval = null;
-        let timeLeft = 60 * 60; // 60分钟
+        let timeLeft = 90 * 90; // 90分钟
 
         // DOM 元素
         const loginSection = document.getElementById('loginSection');
@@ -7671,8 +7671,8 @@
             loginSection.classList.remove('active');
             examSection.classList.add('active');
             
-            // 随机生成试卷 (取30题作为演示)
-            examQuestions = generateRandomExam(30);
+            // 随机生成试卷 (取100题作为演示)
+            examQuestions = generateRandomExam(100);
             
             // 初始化用户答案
             userAnswers = {};
@@ -7842,8 +7842,8 @@
                     return;
                 }
                 
-                const minutes = Math.floor(timeLeft / 60);
-                const seconds = timeLeft % 60;
+                const minutes = Math.floor(timeLeft / 90);
+                const seconds = timeLeft % 90;
                 timer.textContent = `剩余时间: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
             }, 1000);
         }
@@ -7975,7 +7975,7 @@
             // 重新考试按钮
             document.getElementById('retryBtn').addEventListener('click', function() {
                 // 重置考试数据
-                timeLeft = 60 * 60;
+                timeLeft = 90 * 90;
                 resultSection.classList.remove('active');
                 startExam();
             });
